@@ -7,7 +7,7 @@ class CreateTables < ActiveRecord::Migration[5.1]
 
     create_table :products do |t|
     	t.string :name
-    	t.float :price
+    	t.int :price
     	t.string :description
     	t.references :category
     	t.attachment :image

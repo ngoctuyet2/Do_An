@@ -10,3 +10,6 @@ Category.delete_all
 Product.delete_all
 Category.create(name: 'smathphone')
 
+1000.times do |f|
+	Product.create!(name: "iphone #{f}", price: f+1, category: Category.first, description: "description #{f}")
+end
