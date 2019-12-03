@@ -20,6 +20,9 @@
         <a class="nav-link"<%= link_to "Tài khoản người dùng",admin_users_path%></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to "Bài Đăng",admin_posts_path%></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete) %> </a>
       </li>
     </ul>
@@ -35,7 +38,7 @@
   <thead>
     <tr>
       <th scope="col">Mã loại sản phẩm </th>
-      <th scope="col">CategoryTên loại sản phẩm</th>
+      <th scope="col">Tên loại sản phẩm</th>
     </tr>
   </thead>
   <tbody>
@@ -47,7 +50,6 @@
       <td><%= link_to 'Sửa', admin_edit_categories_path(category.id) %></td>
     </tr>
      <% end %>
-
   </tbody>
 </table>
 <%= link_to 'Trở lại ', admin_products_path %>

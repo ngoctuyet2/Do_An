@@ -27,6 +27,18 @@ Rails.application.routes.draw do
 	  	put '/users/:id', to: "users#update", as: 'update_users'
 	  	delete '/users/:id', to: 'users#destroy', as: 'destroy_users'
 	  	post '/users', to: "users#create", as: 'create_users'
+
+	  	get 'posts', to: 'posts#index', as: 'posts'
+	  	get 'posts/new', to: 'posts#new', as: 'new_posts'
+	  	get 'posts/:id', to: 'posts#show', as: 'post'
+	  	get 'posts/:id/edit', to: 'posts#edit', as: 'edit_posts'
+	  	put '/posts/:id', to: "posts#update", as: 'update_posts'
+	  	delete '/posts/:id', to: 'posts#destroy', as: 'destroy_posts'
+	  	post '/posts', to: "posts#create", as: 'create_posts'
+	namespace :user do
+		devise_for :users, skip: :all
+	  	devise_for :users, controllers: { sessions: 'user/users/sessions' }
+	  end
 	end
 	resources :products
 	resources :users

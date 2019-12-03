@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Liện hệ</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link"<%= link_to('Đăng nhập', admin_user_session_path)%></a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -49,6 +52,10 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+
+
+
 </br></br>
   <div class="row">
     <% @products.each do |product| %>
@@ -61,9 +68,16 @@
       </div>
     <% end %>  
     <%= will_paginate @products %>
-
   </div>
 </div>
+
+
+
+
+
+
+
+
 <br/><br>  
 <div class="jumbotron jumbotron-fluid">
   <div class="container" >

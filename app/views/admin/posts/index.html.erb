@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">ADMIN</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,30 +32,30 @@
     </form>
   </div>
 </nav>
-<th class="newww"><%= link_to 'Tạo tài khoản mới',admin_new_users_path %></th>
+<th class=""><%= link_to 'Bài Đăng ', admin_new_posts_path %></th>
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Id </th>
-      <th scope="col">Tên tài khoản</th>
-      <th scope="col">Email </th>
-      <th scope="col">Mật khẩu</th>
-      <th scope="col">User</th>
-      <th scope="col">Hình </th>
+      <th scope="col">Mã bài đăng</th>
+      <th scope="col">Tên bài đăng </th>
+      <th scope="col">Nội dung </th>
+      <th scope="col">Sản phẩm </th>
+      <th scope="col">Người đăng</th>
+      < <th scope="col"></th>
     </tr>
   </thead>
-  <tbody> <% @users.each do |user| %>
+  <tbody>
+    <% @posts.each do |post|%>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name%></td>
-      <td><%= user.email %></td>
-      <td><%= user.password %></td>
-      <td><%= user.position %></td>
-      <td><%= user.avatar %></td>
-      <td><%= link_to'Xóa', admin_destroy_users_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= link_to 'Sửa', admin_edit_users_path(user.id) %></td>
+      <td><%= post.id %></td>
+      <td><%= post.name %></td>
+      <td><%= post.content %></td> 
+      <td><%= post.product.name%></td>
+      <td><%= post.user.name%></td>
+      <td><%= link_to 'Edit', admin_edit_posts_path(post.id)%></td>
+      <td><%= link_to 'Destroy',  admin_destroy_posts_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
      <% end %>
-
   </tbody>
 </table>
+<%= link_to 'Trở lại', admin_products_path %>

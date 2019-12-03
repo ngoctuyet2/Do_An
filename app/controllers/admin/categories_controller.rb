@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
 	before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categorys
@@ -38,8 +38,7 @@ class Admin::CategoriesController < ApplicationController
       if @category.update(category_params)
         redirect_to admin_categories_path(@category)
       else
-        format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        render :edit 
       end
     end
 
