@@ -35,6 +35,22 @@ Rails.application.routes.draw do
 	  	put '/posts/:id', to: "posts#update", as: 'update_posts'
 	  	delete '/posts/:id', to: 'posts#destroy', as: 'destroy_posts'
 	  	post '/posts', to: "posts#create", as: 'create_posts'
+
+	  	get 'comments', to: 'comments#index', as: 'comments'
+	  	get 'comments/new', to: 'comments#new', as: 'new_comments'
+	  	get 'comments/:id', to: 'comments#show', as: 'comment'
+	  	get 'comments/:id/edit', to: 'comments#edit', as: 'edit_comments'
+	  	put '/comments/:id', to: "comments#update", as: 'update_comments'
+	  	delete '/comments/:id', to: 'comments#destroy', as: 'destroy_comments'
+	  	post '/comments', to: "comments#create", as: 'create_comments'
+
+	  	get 'replies', to: 'replies#index', as: 'replies'
+	  	get 'replies/new', to: 'replies#new', as: 'new_replies'
+	  	get 'replies/:id', to: 'replies#show', as: 'reply'
+	  	get 'replies/:id/edit', to: 'replies#edit', as: 'edit_replies'
+	  	put '/replies/:id', to: "replies#update", as: 'update_replies'
+	  	delete '/replies/:id', to: 'replies#destroy', as: 'destroy_replies'
+	  	post '/replies', to: "replies#create", as: 'create_replies'
 	end
 	devise_for :users
 	resources :products

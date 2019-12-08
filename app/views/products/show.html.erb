@@ -1,23 +1,23 @@
 <div style="min-height: 100vh">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #207bd6">
     <a class="navbar-brand" ></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-       <a><%= link_to('Trang chủ', products_path)%></a>
+       <a  class="nav-link" <%= link_to('Trang chủ', products_path)%></a>
         
         <li class="nav-item">
-        <a> <%= link_to('Sản phẩm',products_path)%> </a>
+        <a  class="nav-link" <%= link_to('Sản phẩm',products_path)%> </a>
         </li>
         <li class="nav-item">
         <% if user_signed_in? %>
           <a class="nav-link"<%= link_to('Đăng xuất', destroy_user_session_path, method: :delete)%></a>
         <% else %>
-         <%= link_to('Đăng nhập', user_session_path)%>
+         <a  class="nav-link" <%= link_to('Đăng nhập', user_session_path)%></a>
         <% end %>
         </li>
       </ul>
@@ -55,35 +55,35 @@
     </a>
   </div>
   <br><br>
-  <div style="float: left"  class="col-md-3">
+  <div style="float: left;"  class="col-md-3">
   <%= image_tag @product.image.url(:medium) %>  	
   </div>
-  <h4 style="color: "><%= @product.name%></h4>
-  	Giá: <%= @product.price%>đ</br>
-      <%= @product.description%></br>
-      <% if @product.post %>
-        <%= @product.post.name %>
-        <%= @product.post.content %>
-        <h4> Comment </h4>
-        <br>
-        <div class="comments">
+    <h4 style="color: #3d05b7; font-size: 40px"><%= @product.name%></h4>
+    <h5 style="color: #f21010; font-size: 25px"><%= @product.price%>đ</h5>
+    <p style="color: #3d05b7;font-size: 25px">Đặc điểm nổi bật:</p> <%= @product.description%>
+      <% if @product.post %></br></br>
+       <h4 style="font-style: oblique; color: #ce0c0c"><%= @product.post.content %></h4>
+     </br>
+        <div class="comments" style="margin-left: 15%" >
           <% @product.post.comments.each do |comment| %>
-            <div class="comment">
-              <%= comment.user.email%>:<%= comment.content %>
+            <div class="comment" style="margin-left: 15%">
+              <h6 style="font-style: oblique"><%= comment.user.email%>:&nbsp;&nbsp; <%= comment.content %></h6>
             </div>
             <br>
           <% end %>
-        </div>
+      </div>
         <div class="post_id">
-          <%= hidden_field(:comment, @product.post.id, :value => "#{@product.post.id}")%>
+        <%= hidden_field(:comment, @product.post.id, :value => "#{@product.post.id}")%>
         </div>
         <div class="form-group conetnt-comment">
-          <label >new comment</label>
-          <input type="text" class="form-control" id="exampleInputcomment" aria-describedby="emailHelp" placeholder="Enter email">
+          <label style="margin-left:20%">Bình luận mới</label>
+          <input type="text" class="form-control" id="exampleInputcomment" aria-describedby="emailHelp" placeholder="Nhập bình luận ... " style="width: 20%;margin-left: 20%">
         </div>
-        <button id="submit-comment" class="btn btn-primary">Submit</button>
+        <button id="submit-comment" class="btn btn-primary" style="margin-left: 20%">Bình luận</button>
       <% end %>
-</div>
+    </div>  
+  </br>
+</br>
 <div style="bottom: 0">
   <div class="jumbotron jumbotron-fluid">
     <div class="container" >
@@ -116,7 +116,6 @@
   </div>
   </div>  
   </div>
-
 </div>
 <script type="text/javascript">
   $('#submit-comment').click(function(){

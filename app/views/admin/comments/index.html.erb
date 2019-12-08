@@ -19,17 +19,17 @@
       <li class="nav-item">
         <a class="nav-link"<%= link_to "Tài khoản người dùng",admin_users_path%></a>
       </li>
-      <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link" <%= link_to "Bài Đăng",admin_posts_path%></a>
       </li>
-        <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" <%= link_to "Bình luận",admin_comments_path%></a>
       </li>
-      <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link" <%= link_to "Trả lời bình luận",admin_replies_path%></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete, data: { confirm: 'Are you sure?' })%> </a>
+        <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete) %> </a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -38,24 +38,28 @@
     </form>
   </div>
 </nav>
-
-<th class=""><%= link_to 'Loại sản phẩm mới', admin_new_categories_path %></th>
+<th class=""><%= link_to 'Bình luận mới', admin_new_comments_path %></th>
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Mã loại sản phẩm </th>
-      <th scope="col">Tên loại sản phẩm</th>
+      <th scope="col">Mã bình luận</th>
+      <th scope="col">Nội dung </th>
+      <th scope="col">Bài đăng</th>
+      <th scope="col">Người bình luận</th>
+      < <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <% @categories.each do |category| %>
+    <% @comments.each do |comment|%>
     <tr>
-      <td><%= category.id %></td>
-      <td><%= category.name%></td>
-      <td><%= link_to 'Xóa', admin_destroy_categories_path(category.id) , method: :DELETE%></td>
-      <td><%= link_to 'Sửa', admin_edit_categories_path(category.id) %></td>
+      <td><%= comment.id %></td>
+      <td><%= comment.content %></td>
+      <td><%= comment.post.name%></td>
+      <td><%= comment.user.email%></td>
+      <td><%= link_to 'Edit', admin_edit_comments_path(comment.id)%></td>
+      <td><%= link_to 'Destroy',  admin_destroy_comments_path(comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
      <% end %>
   </tbody>
 </table>
-<%= link_to 'Trở lại ', admin_products_path %>
+<%= link_to 'Trở lại', admin_comments_path %>
