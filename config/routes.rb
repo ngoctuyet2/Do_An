@@ -35,14 +35,13 @@ Rails.application.routes.draw do
 	  	put '/posts/:id', to: "posts#update", as: 'update_posts'
 	  	delete '/posts/:id', to: 'posts#destroy', as: 'destroy_posts'
 	  	post '/posts', to: "posts#create", as: 'create_posts'
-	namespace :user do
-		devise_for :users, skip: :all
-	  	devise_for :users, controllers: { sessions: 'user/users/sessions' }
-	  end
 	end
+	devise_for :users
 	resources :products
 	resources :users
-	
+	post '/create_comment', to: 'products#create_comment'
+	get '/get_comment', to: 'products#get_comment'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	root to: 'products#index'
 end
