@@ -17,6 +17,9 @@
         <a class="nav-link" <%= link_to "Loại sản phẩm ",admin_categories_path%></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to "Khuyến mãi ",admin_promotions_path %></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"<%= link_to "Tài khoản người dùng",admin_users_path%></a>
       </li>
         <li class="nav-item">
@@ -35,7 +38,7 @@
     </form>
   </div>
 </nav>
-<th class=""><%= link_to 'Bài Đăng ', admin_new_posts_path %></th>
+<th class=""><%= link_to 'Bài Đăng', admin_new_posts_path %>   </th>
   <table class="table table-bordered">
   <thead>
     <tr>
@@ -55,8 +58,8 @@
       <td><%= post.content %></td> 
       <td><%= post.product.name%></td>
       <td><%= post.user.name%></td>
-      <td><%= link_to 'Edit', admin_edit_posts_path(post.id)%></td>
-      <td><%= link_to 'Destroy',  admin_destroy_posts_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Sửa ', admin_edit_posts_path(post.id)%></td>
+      <td><%= link_to 'Xóa',  admin_destroy_posts_path(post.id), method: :delete, data: { confirm: 'Bạn chắc chắn muốn xóa chứ?' } %></td>
     </tr>
      <% end %>
   </tbody>

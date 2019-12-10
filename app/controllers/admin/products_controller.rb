@@ -4,12 +4,24 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @categories = Category.all
+    #@products = Product.all 
+   @products = Product.where(["name LIKE ?","%#{params[:search]}%"])
   end
+  # def search
+  #   @products = Product.all
+  #   if params[:search].blank?  
+  #     redirect_to admin_products_path(@product)
+  #   else
+  #     @parameter = params[:search].downcase  
+  #     @products = Product.all.where("lower(name) LIKE :search", search: @parameter)  
+  #   end  
+  # end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @categories = Category.all
   end
 
   # GET /products/new

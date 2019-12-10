@@ -12,6 +12,18 @@
       <li class="nav-item">
         <a class="nav-link"<%= link_to('Sản phẩm',products_path)%></a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Danh Mục</a>  
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"</a>
+          <a class="dropdown-item" href="#">TiVi</a>
+          <a class="dropdown-item" href="#">Lap Top</a>
+           <a class="dropdown-item" href="#">Máy điều hòa</a>
+            <a class="dropdown-item" href="#">Điện thoại</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
       <li class="nav-item">
         <% if user_signed_in? %>
           <a class="nav-link"<%= link_to('Đăng xuất', destroy_user_session_path, method: :delete)%></a>
@@ -20,11 +32,15 @@
         <% end %>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+    <%= form_tag(products_path, :method => "get",   
+    class: 'navbar-form navbar-left') do %>  
+  <div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+    <div class="input-group-btn" style="margin-right: 10%; height: 20%; width: 20%">  
+      <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+    </div>  
+  </div>  
+<% end %>
 </nav>
 </br>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -32,7 +48,7 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+  </ol> 
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="hinh"><%= image_tag("hinh.png")%></div>
@@ -64,7 +80,6 @@
         <%= link_to 'Chi tiết', product_path(product.id)%></p> 
       </div>
     <% end %>  
-    <%= will_paginate @products %>
   </div>
 </div>
 <br/><br>  

@@ -5,6 +5,7 @@ class Admin::CategoriesController < Admin::BaseController
   # GET /categorys.json
   def index
     @categories = Category.all
+    @products = Product.all 
   end
 
   # GET /categories/1

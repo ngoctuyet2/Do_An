@@ -17,6 +17,9 @@
         <a class="nav-link" <%= link_to "Loại sản phẩm ",admin_categories_path%></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to "Khuyến mãi ",admin_promotions_path %></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"<%= link_to "Tài khoản người dùng",admin_users_path%></a>
       </li>
         <li class="nav-item">
@@ -42,9 +45,9 @@
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Mã tra loi</th>
+      <th scope="col">Mã trả lời</th>
       <th scope="col">Nội dung </th>
-      <th scope="col">Comment</th>
+      <th scope="col">Bình luận</th>
       <th scope="col">Người bình luận</th>
       < <th scope="col"></th>
     </tr>
@@ -56,8 +59,8 @@
       <td><%= reply.content %></td>
       <td><%= reply.comment.content%></td>
       <td><%= reply.user.email%></td>
-      <td><%= link_to 'Edit', admin_edit_replies_path(reply.id)%></td>
-      <td><%= link_to 'Destroy',  admin_destroy_replies_path(reply.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Sửa', admin_edit_replies_path(reply.id)%></td>
+      <td><%= link_to 'Xóa',  admin_destroy_replies_path(reply.id), method: :delete, data: { confirm: 'Bạn chắc chắn muốn xóa chứ ?' } %></td>
     </tr>
      <% end %>
   </tbody>

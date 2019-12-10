@@ -17,6 +17,9 @@
         <a class="nav-link" <%= link_to "Loại sản phẩm ",admin_categories_path%></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to "Khuyến mãi ",admin_promotions_path %></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"<%= link_to "Tài khoản người dùng",admin_users_path%></a>
       </li>
       <li class="nav-item">
@@ -52,7 +55,7 @@
     <tr>
       <td><%= category.id %></td>
       <td><%= category.name%></td>
-      <td><%= link_to 'Xóa', admin_destroy_categories_path(category.id) , method: :DELETE%></td>
+      <td><%= link_to 'Xóa', admin_destroy_categories_path(category.id) , method: :DELETE , data: { confirm: 'Bạn chắc chắn muốn xóa chứ?' }%></td>
       <td><%= link_to 'Sửa', admin_edit_categories_path(category.id) %></td>
     </tr>
      <% end %>

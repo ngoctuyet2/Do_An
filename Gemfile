@@ -13,6 +13,8 @@ gem 'rails', '~> 5.1.7'
 gem 'will_paginate', '~> 3.1.0'
 gem "bootstrap-sass", "~> 3.3.6"
 gem 'mysql2'
+gem "ransack" 
+gem 'simple_form'
 gem "paperclip"
 gem "devise"
 gem "jquery-rails"

@@ -16,6 +16,9 @@
         <a class="nav-link" <%= link_to "Loại sản phẩm ",admin_categories_path%></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to "Khuyến mãi ",admin_promotions_path %></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"<%= link_to "Tài khoản người dùng",admin_users_path%></a>
       </li>
         <li class="nav-item">
@@ -28,13 +31,12 @@
         <a class="nav-link" <%= link_to "Trả lời bình luận",admin_replies_path %></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" <%= link_to "Khuyến mãi ",admin_promotions_path %></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete ,data:{ confirm:'Are you sure?'})%> </a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 </br></br>

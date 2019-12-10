@@ -25,14 +25,11 @@
         <li class="nav-item">
         <a class="nav-link" <%= link_to "Bài Đăng",admin_posts_path%></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Bình luận",admin_comments_path%></a>
-      </li>
         <li class="nav-item">
-        <a class="nav-link" <%= link_to "Trả lời bình luận",admin_replies_path%></a>
+        <a class="nav-link" <%= link_to "Trả lời bình luận",admin_replies_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete) %> </a>
+        <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete , data: { confirm: 'Are you sure?' }) %> </a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -41,28 +38,28 @@
     </form>
   </div>
 </nav>
-<th class=""><%= link_to 'Bình luận mới', admin_new_comments_path %></th>
+<th class=""><%= link_to 'Khuyến mãi ', admin_new_promotions_path %></th>
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Mã bình luận</th>
+      <th scope="col">Mã khuyến mãi</th>
+      <th scope="col">Tên khuyễn mãi </th>
       <th scope="col">Nội dung </th>
-      <th scope="col">Bài đăng</th>
-      <th scope="col">Người bình luận</th>
+      <th scope="col">Sản phẩm </th>
       < <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <% @comments.each do |comment|%>
+    <% @promotions.each do |promotion|%>
     <tr>
-      <td><%= comment.id %></td>
-      <td><%= comment.content %></td>
-      <td><%= comment.post.name%></td>
-      <td><%= comment.user.email%></td>
-      <td><%= link_to 'Sửa', admin_edit_comments_path(comment.id)%></td>
-      <td><%= link_to 'Xóa',  admin_destroy_comments_path(comment.id), method: :delete, data: { confirm: 'Bạn chắc chắn muốn xóa chứ?' } %></td>
+      <td><%= promotion.id %></td>
+      <td><%= promotion.name %></td>
+      <td><%= promotion.content %></td> 
+      <td><%= promotion.product.name%></td>
+      <td><%= link_to 'Sửa', admin_edit_promotions_path(promotion.id)%></td>
+      <td><%= link_to 'Xóa',  admin_destroy_promotions_path(promotion.id), method: :delete, data: { confirm: 'Bạn chắc chắn muốn xóa chứ?' } %></td>
     </tr>
      <% end %>
   </tbody>
 </table>
-<%= link_to 'Trở lại', admin_comments_path %>
+<%= link_to 'Trở lại', admin_promotions_path %>
