@@ -1,1 +1,78 @@
+
+<p id="notice"><%= notice %></p>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"><%= image_tag("loooo.jpg")%>  </li>
+      <li class="nav-item active">
+        <a class="nav-link"<%= link_to('Trang chủ',products_path)%><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"<%= link_to('Sản phẩm',products_path)%></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Danh Mục</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" <%= link_to('Tủ lạnh ',category_path)%></a>
+            <a class="dropdown-item" <%= link_to('Ti Vi ',category_path)%></a>
+            <a class="dropdown-item" <%= link_to('Quạt điều hòa',category_path)%></a>
+    </div>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <a class="nav-link"<%= link_to('Đăng xuất', destroy_user_session_path, method: :delete)%></a>
+        <% else %>
+          <a class="nav-link"<%= link_to('Đăng nhập', user_session_path)%></a>
+        <% end %>
+      </li>
+    </ul>
+    <%= form_tag(products_path, :method => "get",   
+    class: 'navbar-form navbar-left') do %>  
+  <div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+    <div class="input-group-btn" style="margin-right: 10%; height: 20%; width: 20%">  
+      <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+    </div>  
+  </div>  
+<% end %>
+</nav>
+
+
 <h1>hihih</h1>
+
+
+<div class="jumbotron jumbotron-fluid" style="margin-top: 40%">
+  <div class="container" >
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+     <h4 style="color: blue;">Thông tin điện máy xanh</h4>
+     <p>Hệ thống 991 siêu thị (8:00-22:00)</br>
+      Giới thiệu công ty</br>
+      Tìm việc làm</br> 
+      Liên hệ góp ý </p>  
+    </div>
+    <div class="col-sm">
+     <h4 style="color: blue;">Hỗ trợ khách hàng</h4>
+     <p>Tìm hiểu thông tin về mua trả góp</br>
+        Giao hàng, lắp đặt</br>
+        Bảo hành đổi trả</br>
+        Dịch vụ vệ sinh</p>
+    </div>
+    <div class="col-sm">
+      <h4 style="color: blue;">Tổng đài hỗ trợ</h4>
+      <p>
+       Mua hàng 1800.1061 (7:30 - 22:00)</br>
+      Kỹ thuật 1800.1764 (7:30 - 22:00)</br>
+      Bảo hành1800.1065 (8:00 - 21:00)</br>
+      Khiếu nại 1800.1063 (8:00 - 21:30)</br>
+      </p>
+    </div>
+  </div>
+</div>
+</div>  

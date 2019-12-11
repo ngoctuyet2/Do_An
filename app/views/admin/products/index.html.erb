@@ -31,6 +31,15 @@
         <a class="nav-link"<%= link_to('Đăng xuất', destroy_admin_user_session_path, method: :delete ,data:{ confirm:'Are you sure?'})%> </a>
       </li>
     </ul>
+          <%= form_tag(admin_products_path, :method => "get",   
+          class: 'navbar-form navbar-left') do %>  
+             <div class="input-group">  
+              <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+            <div class="input-group-btn" style="margin-right: 10%; height: 20%; width: 20%">  
+              <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+          </div>  
+  </div>  
+<% end %>
   </div>
 </nav>
 </br></br>

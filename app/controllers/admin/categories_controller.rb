@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::BaseController
   # GET /categorys
   # GET /categorys.json
   def index
-    @categories = Category.all
+    @categories = Category.where(["name LIKE ?","%#{params[:search]}%"])
     @products = Product.all 
   end
 

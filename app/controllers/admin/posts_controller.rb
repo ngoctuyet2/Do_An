@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::BaseController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where(["name LIKE ?","%#{params[:search]}%"])
   end
 
   # GET /posts/1

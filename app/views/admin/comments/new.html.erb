@@ -1,17 +1,17 @@
 <%= form_with(scope: :comment, url:  admin_create_comments_path, local: true) do |form| %>
-   <div class="form-group">
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%;">
      <%= form.label :content%>
      <%= form.text_area :content, id: :comment_content,  class:'form-control'%>
    </div>
-   <div class="form-group">
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%;">
      <%= form.label :post_id %>
      <%= form.select(:post_id, @posts.map{|f| [f.content, f.id]}, {}, { :class => 'form-control' })%>
    </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-left: 20%; margin-right: 20%;">
      <%= form.label :user_id %>
      <%= form.select(:user_id, @users.map{|f| [f.name, f.id]}, {}, { :class => 'form-control' })%>
    </div>
-   <div class="actions">
+   <div class="actions" style="margin-left: 20%; margin-right: 20%;">
      <%= form.submit %>
    </div>
  <% end %>

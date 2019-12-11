@@ -77,7 +77,7 @@
    <% if @product.post %></br></br>
        <h4 style="font-style: oblique; color: #ce0c0c; margin-left: 5%; margin-right: 5%"><%= @product.post.content %></h4>
      </br>
-        <div class="comments" style="margin-left: 15%" >
+     <div class="comments" style="margin-left: 15%" >
           <% @product.post.comments.each do |comment| %>
             <div class="comment" style="margin-left: 15%">
               <h6 style="font-style: oblique"><%= comment.user.email%>:&nbsp;&nbsp; <%= comment.content %></h6>

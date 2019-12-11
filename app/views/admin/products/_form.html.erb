@@ -12,34 +12,30 @@
      </div>
    <% end %>
 
-   <div class="form-group">
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%">
      <%= form.label :name %>
      <%= form.text_field :name, id: :product_name, class:'form-control'%>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%">
      <%= form.label :price %>
      <%= form.text_area :price, id: :product_price,  class:'form-control'%>
    </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-left: 20%; margin-right: 20%">
      <%= form.label :description %>
      <%= form.text_area :description, id: :product_description, class:'form-control' %>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%">
      <%= form.label :category_id %>
      <%= form.select(:category_id, @categories.map{|f| [f.name, f.id]}, {}, { :class => 'form-control' })%>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%">
      <%= form.label :image %>
      <%= form.file_field :image, id: :product_image,  class:'form-control'%>
    </div>
-   <div class="form-group">
-     <%= form.label :promotion %>
-     <%= form.text_area :promotion, id: :product_promotion, class:'form-control' %>
-   </div>
-   <div class="actions">
+   <div class="actions" style="margin-left: 20%; margin-right: 20%">
      <%= form.submit %>
    </div>
  <% end %>

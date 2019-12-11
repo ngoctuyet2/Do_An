@@ -1,9 +1,10 @@
 <%= form_with(scope: :category, url: admin_create_categories_path,local: true) do |form| %>
-   <div class="form-group">
-     <%= form.label :name %>
+   <div class="form-group" style="margin-left: 20%; margin-right: 20%">
+     <%= form.label :name%>
      <%= form.text_field :name, id: :category_name, class:'form-control'%>
    </div>
-     <div class="actions">
+     <div class="actions" style="margin-left: 20%; margin-right: 20%">
      <%= form.submit %>
    </div>
  <% end %>
+ <%= link_to 'Trở lại', admin_categories_path %>

@@ -14,15 +14,12 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Danh Mục</a>  
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item"</a>
-          <a class="dropdown-item" <%= link_to('TiVi', category_path)%></a>
-          <a class="dropdown-item" href="#">Lap Top</a>
-           <a class="dropdown-item" href="#">Máy điều hòa</a>
-            <a class="dropdown-item" href="#">Điện thoại</a>
-          <div class="dropdown-divider"></div>
-        </div>
+          Danh Mục</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" <%= link_to('Tủ lạnh ',category_path)%></a>
+            <a class="dropdown-item" <%= link_to('Ti Vi ',category_path)%></a>
+            <a class="dropdown-item" <%= link_to('Quạt điều hòa',category_path)%></a>
+    </div>
       </li>
       <li class="nav-item">
         <% if user_signed_in? %>
