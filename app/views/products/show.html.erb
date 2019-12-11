@@ -74,8 +74,6 @@
     <h4 style="color: #3d05b7; font-size: 40px"><%= @product.name%></h4>
     <h5 style="color: #f21010; font-size: 25px"><%= @product.price%>đ</h5>
     <p style="color: #3d05b7;font-size: 25px;">Đặc điểm nổi bật:</p> <p style="margin-right: 15%"><%= @product.description%></p>
-      <p style="color: #993300">Khuyễn mãi:</p>
-      <%= @product.promotions.content %>
    <% if @product.post %></br></br>
        <h4 style="font-style: oblique; color: #ce0c0c; margin-left: 5%; margin-right: 5%"><%= @product.post.content %></h4>
      </br>

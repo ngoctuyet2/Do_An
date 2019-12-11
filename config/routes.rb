@@ -50,14 +50,6 @@ Rails.application.routes.draw do
 	  	put '/replies/:id', to: "replies#update", as: 'update_replies'
 	  	delete '/replies/:id', to: 'replies#destroy', as: 'destroy_replies'
 	  	post '/replies', to: "replies#create", as: 'create_replies'
-
-	  	get 'promotions', to: 'promotions#index', as: 'promotions'
-	  	get 'promotions/new', to: 'promotions#new', as: 'new_promotions'
-	  	get 'promotions/:id', to: 'promotions#show', as: 'promotion'
-	  	get 'promotions/:id/edit', to: 'promotions#edit', as: 'edit_promotions'
-	  	put '/promotions/:id', to: "promotions#update", as: 'update_promotions'
-	  	delete '/promotions/:id', to: 'promotions#destroy', as: 'destroy_promotions'
-	  	post '/promotions', to: "promotions#create", as: 'create_promotions'
 	end
 	devise_for :users
 	resources :products
@@ -73,5 +65,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	root to: 'products#index'
+	get'/show', to:'categories#show' , as: 'category'
 end
 	

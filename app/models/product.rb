@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
 	belongs_to :category
 	has_many :evaluates
-	has_many :promotions
 	has_one :post,dependent: :destroy
 	validates :price,presence: true, numericality:  { greater_than_or_equal_to: 0 }
 	validates :description, presence: true, length:{ minimum: 2 }

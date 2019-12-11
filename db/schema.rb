@@ -63,15 +63,6 @@ ActiveRecord::Schema.define(version: 20191210094430) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "promotions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "content"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_promotions_on_product_id"
-  end
-
   create_table "replies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "content"
     t.bigint "user_id"
